@@ -5,18 +5,9 @@
  *
  * font: see http://freedesktop.org/software/fontconfig/fontconfig-user.html
  */
-static char *fonts[] = {
-  "Fira Code Retina Nerd Font Complete Mono:pixelsize=16:antialias=true:autohint=true",
-  "Fira Code Retina Nerd Font Complete:pixelsize=16:antialias=true:autohint=true",
-  "Inconsolata Nerd Font Complete Mono:pixelsize=16:antialias=true:autohint=true",
-  "JetBrains Mono Regular Nerd Font Complete:pixelsize=16:antialias=true:autohint=true",
-  "Roboto Mono Light Nerd Font Complete:pixelsize=16:antialias=true:autohint=true"
-};
-static int fonts_current = 0;
-
+static char *font = "Roboto Mono Nerd Font Mono:pixelsize=16:antialias=true:autohint=true";
 /* Spare fonts */
 static char *font2[] = {
-    "PowerlineSymbols:pixelsize=12:antialias=true:autohint=true",
     "JoyPixel:pixelsize=10:antialias=true:autohint=true"
 };
 
@@ -124,32 +115,31 @@ float alpha = 0.8;
 
 /* Terminal colors (16 first used in escape sequence) */
 static const char *colorname[] = {
-	/* 8 normal colors */
-	"black",
-	"red3",
-	"green3",
-	"yellow3",
-	"blue2",
-	"magenta3",
-	"cyan3",
-	"gray90",
+    /* 8 normal colors */
+    "black",
+    "red3",
+    "green3",
+    "yellow3",
+    "blue2",
+    "magenta3",
+    "cyan3",
+    "gray90",
 
-	/* 8 bright colors */
-	"gray50",
-	"red",
-	"green",
-	"yellow",
-	"#5c5cff",
-	"magenta",
-	"cyan",
-	"white",
+    /* 8 bright colors */
+    "gray50",
+    "red",
+    "green",
+    "yellow",
+    "#5c5cff",
+    "magenta",
+    "cyan",
+    "white",
 
-	[255] = 0,
+    [255] = 0,
 
-	/* more colors can be added after 255 to use with DefaultXX */
-	"#cccccc",
-	"#555555",
-	"black",
+    /* more colors can be added after 255 to use with DefaultXX */
+    "#cccccc",
+    "#555555",
 };
 
 
@@ -158,7 +148,7 @@ static const char *colorname[] = {
  * foreground, background, cursor, reverse cursor
  */
 unsigned int defaultfg = 7;
-unsigned int defaultbg = 258;
+unsigned int defaultbg = 0;
 static unsigned int defaultcs = 256;
 static unsigned int defaultrcs = 257;
 
@@ -202,7 +192,7 @@ static uint forcemousemod = ShiftMask;
  * Xresources preferences to load at startup
  */
 ResourcePref resources[] = {
-/* 		{ "font",         STRING,  &font }, */
+		{ "font",         STRING,  &font },
 		{ "color0",       STRING,  &colorname[0] },
 		{ "color1",       STRING,  &colorname[1] },
 		{ "color2",       STRING,  &colorname[2] },
@@ -250,8 +240,8 @@ static MouseShortcut mshortcuts[] = {
 };
 
 /* Internal keyboard shortcuts. */
-#define MODKEY Mod1Mask
-#define TERMMOD (ControlMask|ShiftMask)
+#define MODKEY Mod4Mask
+#define TERMMOD (Mod4Mask|ShiftMask)
 
 static Shortcut shortcuts[] = {
 	/* mask                 keysym          function        argument */
@@ -269,7 +259,6 @@ static Shortcut shortcuts[] = {
 	{ TERMMOD,              XK_Num_Lock,    numlock,        {.i =  0} },
 	{ ShiftMask,            XK_Page_Up,     kscrollup,      {.i = -1} },
 	{ ShiftMask,            XK_Page_Down,   kscrolldown,    {.i = -1} },
-	{ TERMMOD,              XK_S,           cyclefonts,     {}        },
 };
 
 /*
