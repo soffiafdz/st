@@ -5,9 +5,9 @@
  *
  * font: see http://freedesktop.org/software/fontconfig/fontconfig-user.html
  */
-static char *font = "monospace:pixelsize=16:antialias=true:autohint=true";
-static char *font2[] = {"JoyPixel:pixelsize=10:antialias=true:autohint=true"};
-static int borderpx = 2;
+static char *font = "monospace:pixelsize=12:antialias=true:autohint=true";
+static char *font2[] = {"JoyPixel:pixelsize=13:antialias=true:autohint=true"};
+static int borderpx = 3;
 
 /*
  * What program is execed by st depends of these precedence rules:
@@ -240,8 +240,8 @@ static MouseShortcut mshortcuts[] = {
 };
 
 /* Internal keyboard shortcuts. */
-#define MODKEY Mod4Mask
-#define TERMMOD (Mod4Mask|ShiftMask)
+#define MODKEY Mod1Mask
+#define TERMMOD (Mod1Mask|ShiftMask)
 
 static Shortcut shortcuts[] = {
 	/* mask                 keysym          function        argument */
