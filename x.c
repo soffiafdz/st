@@ -1626,7 +1626,7 @@ xdrawglyphfontspecs(const XftGlyphFontSpec *specs, Glyph base, int len, int x, i
     XftDrawRect(xw.draw, bg, winx, winy, width, win.ch);
   }
 
-	/* /* Set the clip region because Xft is sometimes dirty. */ */
+	/* Set the clip region because Xft is sometimes dirty. */
 	/* r.x = 0; */
 	/* r.y = 0; */
 	/* r.height = win.ch; */
